@@ -40,7 +40,7 @@ This design creates a **25-foot elevated, solar-powered Meshtastic station** tha
 
 ### Solar System
 - 2x 6V 250mA solar panels (137×85×2mm)
-- Series wiring for 12V 250mA output
+- Parallel wiring for 6V 500mA output
 - 35° tilt mount facing south
 
 ### Antenna Construction

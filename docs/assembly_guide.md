@@ -170,6 +170,6 @@ ESP32 → WiO-SX1262:
 4. **Allow air circulation** behind panels for cooling
 
 **Wiring Setup:**
-1. **Series connection:** Connect positive of panel 1 to negative of panel 2
-2. **Output leads:** Remaining positive and negative to enclosure
+1. **Parallel connection:** Connect positive of both panels together, negative of both panels together
+2. **Output leads:** Combined positive and negative to enclosure
 3. **Strain relief:** Use grommets where wires enter

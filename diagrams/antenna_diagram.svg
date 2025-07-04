@@ -1,0 +1,202 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Arrow marker for dimension lines -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    
+    <!-- Gradient for 3D effect -->
+    <linearGradient id="hubGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0E0E0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A0A0A0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2C3E50">
+    915MHz Ground Plane Antenna - Technical Diagram
+  </text>
+  
+  <!-- Main antenna assembly -->
+  <g transform="translate(200, 80)">
+    
+    <!-- Vertical radiator element -->
+    <g id="vertical-element">
+      <!-- Fiberglass support rod -->
+      <line x1="0" y1="0" x2="0" y2="80" stroke="#8B4513" stroke-width="8" stroke-linecap="round"/>
+      
+      <!-- Four copper wires around the rod -->
+      <line x1="-3" y1="0" x2="-3" y2="80" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="0" y2="80" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/>
+      <line x1="3" y1="0" x2="3" y2="80" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/>
+      <line x1="0" y1="-3" x2="0" y2="77" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/>
+      
+      <!-- Length dimension -->
+      <g stroke="#666" stroke-width="1" fill="#666">
+        <line x1="-15" y1="0" x2="-15" y2="80" marker-end="url(#arrowhead)" marker-start="url(#arrowhead)"/>
+        <text x="-25" y="40" font-family="Arial, sans-serif" font-size="12" fill="#666" transform="rotate(-90, -25, 40)">3.2"</text>
+      </g>
+    </g>
+    
+    <!-- 3D printed hub at base -->
+    <g id="hub-assembly">
+      <!-- Main hub body -->
+      <ellipse cx="0" cy="80" rx="25" ry="12" fill="url(#hubGradient)" stroke="#666" stroke-width="2"/>
+      <rect x="-25" y="80" width="50" height="15" fill="#C0C0C0" stroke="#666" stroke-width="2"/>
+      <ellipse cx="0" cy="95" rx="25" ry="12" fill="#A0A0A0" stroke="#666" stroke-width="2"/>
+      
+      <!-- SMA connector indication -->
+      <circle cx="0" cy="87" r="4" fill="#FFD700" stroke="#B8860B" stroke-width="1"/>
+      <text x="10" y="90" font-family="Arial, sans-serif" font-size="10" fill="#333">SMA</text>
+    </g>
+    
+    <!-- Four radial elements at 45 degrees -->
+    <g id="radial-elements">
+      <!-- Radial 1 (0°) -->
+      <g>
+        <line x1="0" y1="87" x2="60" y2="127" stroke="#8B4513" stroke-width="6" stroke-linecap="round"/>
+        <line x1="-2" y1="89" x2="58" y2="129" stroke="#4A90E2" stroke-width="2"/>
+        <line x1="0" y1="87" x2="60" y2="127" stroke="#4A90E2" stroke-width="2"/>
+        <line x1="2" y1="85" x2="62" y2="125" stroke="#4A90E2" stroke-width="2"/>
+        <line x1="0" y1="85" x2="60" y2="125" stroke="#4A90E2" stroke-width="2"/>
+      </g>
+      
+      <!-- Radial 2 (90°) -->
+      <g>
+        <line x1="0" y1="87" x2="-60" y2="127" stroke="#8B4513" stroke-width="6" stroke-linecap="round"/>
+        <line x1="2" y1="89" x2="-58" y2="129" stroke="#4A90E2" stroke-width="2"/>
+        <line x1="0" y1="87" x2="-60" y2="127" stroke="#4A90E2" stroke-width="2"/>
+        <line x1="-2" y1="85" x2="-62" y2="125" stroke="#4A90E2" stroke-width="2"/>
+        <line x1="0" y1="85" x2="-60" y2="125" stroke="#4A90E2" stroke-width="2"/>
+      </g>
+      
+      <!-- Radial 3 (180°) - back, shown dashed -->
+      <g>
+        <line x1="0" y1="87" x2="40" y2="107" stroke="#8B4513" stroke-width="5" stroke-dasharray="8,4" stroke-linecap="round"/>
+        <line x1="0" y1="87" x2="40" y2="107" stroke="#4A90E2" stroke-width="2" stroke-dasharray="6,3"/>
+      </g>
+      
+      <!-- Radial 4 (270°) - back, shown dashed -->
+      <g>
+        <line x1="0" y1="87" x2="-40" y2="107" stroke="#8B4513" stroke-width="5" stroke-dasharray="8,4" stroke-linecap="round"/>
+        <line x1="0" y1="87" x2="-40" y2="107" stroke="#4A90E2" stroke-width="2" stroke-dasharray="6,3"/>
+      </g>
+      
+      <!-- 45 degree angle indicator -->
+      <path d="M 0 87 L 20 87 A 20 20 0 0 1 14 101 Z" fill="#FFE066" stroke="#FFA500" stroke-width="1"/>
+      <text x="25" y="95" font-family="Arial, sans-serif" font-size="12" fill="#E65100">45°</text>
+    </g>
+    
+    <!-- Radial length dimension -->
+    <g stroke="#666" stroke-width="1" fill="#666">
+      <line x1="5" y1="132" x2="65" y2="132" marker-end="url(#arrowhead)"/>
+      <text x="35" y="145" font-family="Arial, sans-serif" font-size="12" fill="#666">3.2"</text>
+    </g>
+  </g>
+  
+  <!-- Side view diagram -->
+  <g transform="translate(500, 150)">
+    <text x="0" y="-10" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2C3E50">Side View</text>
+    
+    <!-- Vertical element -->
+    <line x1="50" y1="20" x2="50" y2="100" stroke="#FF6B35" stroke-width="6"/>
+    
+    <!-- Hub -->
+    <rect x="35" y="95" width="30" height="15" fill="#C0C0C0" stroke="#666" stroke-width="2" rx="2"/>
+    
+    <!-- Horizontal reference line -->
+    <line x1="20" y1="102" x2="80" y2="102" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+    
+    <!-- Radials at 45 degrees -->
+    <line x1="50" y1="102" x2="85" y2="137" stroke="#4A90E2" stroke-width="4"/>
+    <line x1="50" y1="102" x2="15" y2="137" stroke="#4A90E2" stroke-width="4"/>
+    
+    <!-- 45 degree angle arc -->
+    <path d="M 50 102 L 70 102 A 20 20 0 0 1 64 116 Z" fill="#FFE066" stroke="#FFA500" stroke-width="1"/>
+    <text x="75" y="112" font-family="Arial, sans-serif" font-size="10" fill="#E65100">45°</text>
+  </g>
+  
+  <!-- Radiation pattern -->
+  <g transform="translate(550, 320)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2C3E50">Radiation Pattern</text>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="11" fill="#666">(Horizontal Plane)</text>
+    
+    <!-- Circular pattern -->
+    <circle cx="60" cy="70" r="50" fill="none" stroke="#FF6B35" stroke-width="3"/>
+    <circle cx="60" cy="70" r="35" fill="none" stroke="#FF6B35" stroke-width="2" stroke-dasharray="4,4"/>
+    <circle cx="60" cy="70" r="20" fill="none" stroke="#FF6B35" stroke-width="1" stroke-dasharray="2,2"/>
+    
+    <!-- Center point -->
+    <circle cx="60" cy="70" r="3" fill="#2C3E50"/>
+    
+    <!-- Directional arrows -->
+    <path d="M 60 20 L 55 30 L 65 30 Z" fill="#FF6B35"/>
+    <path d="M 60 120 L 55 110 L 65 110 Z" fill="#FF6B35"/>
+    <path d="M 10 70 L 20 65 L 20 75 Z" fill="#FF6B35"/>
+    <path d="M 110 70 L 100 65 L 100 75 Z" fill="#FF6B35"/>
+    
+    <!-- Pattern labels -->
+    <text x="20" y="140" font-family="Arial, sans-serif" font-size="10" fill="#333">Omnidirectional</text>
+    <text x="25" y="153" font-family="Arial, sans-serif" font-size="10" fill="#333">Coverage</text>
+  </g>
+  
+  <!-- Technical specifications -->
+  <g transform="translate(50, 250)">
+    <rect x="0" y="0" width="280" height="280" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="2" rx="5"/>
+    <text x="15" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2C3E50">Technical Specifications</text>
+    
+    <text x="20" y="50" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">Frequency:</text>
+    <text x="90" y="50" font-family="Arial, sans-serif" font-size="12" fill="#6C757D">915 MHz (US ISM)</text>
+    
+    <text x="20" y="70" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">Gain:</text>
+    <text x="90" y="70" font-family="Arial, sans-serif" font-size="12" fill="#6C757D">3-4 dBi</text>
+    
+    <text x="20" y="90" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">Impedance:</text>
+    <text x="90" y="90" font-family="Arial, sans-serif" font-size="12" fill="#6C757D">50 Ω</text>
+    
+    <text x="20" y="110" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">Polarization:</text>
+    <text x="90" y="110" font-family="Arial, sans-serif" font-size="12" fill="#6C757D">Vertical</text>
+    
+    <text x="20" y="130" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">VSWR:</text>
+    <text x="90" y="130" font-family="Arial, sans-serif" font-size="12" fill="#6C757D">&lt; 1.5:1</text>
+    
+    <text x="20" y="150" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">Bandwidth:</text>
+    <text x="90" y="150" font-family="Arial, sans-serif" font-size="12" fill="#6C757D">902-928 MHz</text>
+    
+    <text x="20" y="180" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#495057">Construction Materials:</text>
+    <text x="20" y="200" font-family="Arial, sans-serif" font-size="11" fill="#6C757D">• 7/16" fiberglass rods (support)</text>
+    <text x="20" y="215" font-family="Arial, sans-serif" font-size="11" fill="#6C757D">• 12 AWG copper wire (elements)</text>
+    <text x="20" y="230" font-family="Arial, sans-serif" font-size="11" fill="#6C757D">• 3D printed PETG hub</text>
+    <text x="20" y="245" font-family="Arial, sans-serif" font-size="11" fill="#6C757D">• SMA bulkhead connector</text>
+    
+    <text x="20" y="270" font-family="Arial, sans-serif" font-size="10" font-style="italic" fill="#868E96">
+      Optimized for Meshtastic 915MHz operation
+    </text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(400, 450)">
+    <rect x="0" y="0" width="350" height="120" fill="#F8F9FA" stroke="#DEE2E6" stroke-width="1" rx="3"/>
+    <text x="15" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2C3E50">Component Legend</text>
+    
+    <!-- Fiberglass rod -->
+    <line x1="20" y1="35" x2="40" y2="35" stroke="#8B4513" stroke-width="6"/>
+    <text x="50" y="39" font-family="Arial, sans-serif" font-size="11" fill="#495057">7/16" Fiberglass Support Rod</text>
+    
+    <!-- Copper wire -->
+    <line x1="20" y1="55" x2="40" y2="55" stroke="#FF6B35" stroke-width="3"/>
+    <text x="50" y="59" font-family="Arial, sans-serif" font-size="11" fill="#495057">12 AWG Copper Wire (4 per element)</text>
+    
+    <!-- 3D printed hub -->
+    <rect x="20" y="70" width="20" height="8" fill="url(#hubGradient)" stroke="#666" stroke-width="1"/>
+    <text x="50" y="77" font-family="Arial, sans-serif" font-size="11" fill="#495057">3D Printed Radial Hub (PETG/ABS)</text>
+    
+    <!-- Dashed elements -->
+    <line x1="20" y1="90" x2="40" y2="90" stroke="#4A90E2" stroke-width="3" stroke-dasharray="6,3"/>
+    <text x="50" y="94" font-family="Arial, sans-serif" font-size="11" fill="#495057">Rear Elements (shown dashed)</text>
+    
+    <text x="15" y="110" font-family="Arial, sans-serif" font-size="9" fill="#868E96">
+      All dimensions critical for 915MHz resonance
+    </text>
+  </g>
+</svg>

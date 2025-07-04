@@ -32,10 +32,10 @@ This design creates a **25-foot elevated, solar-powered Meshtastic station** tha
 ## 🛠️ Hardware Components
 
 ### Electronics
-- ESP32 development board
+- Seeed Studio Xiao ESP32 development board (probably swap for the NRF52840 as wifi is unneccessary in this application)
 - Seeed Studio WiO-SX1262 LoRa radio
-- 6000mAh LiPo battery
-- Battery Management System (BMS)
+- 6000mAh LiPo battery (aliexpress sourced)
+- Battery Management System (aliexpress sourced)
 - Breadboard for prototyping
 
 ### Solar System

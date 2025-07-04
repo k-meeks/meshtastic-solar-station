@@ -33,9 +33,9 @@ Safety margin (20%): 1.32Ah × 1.2 = 1.58Ah per day
 - **Power:** 1.5W per panel
 - **Dimensions:** 137mm × 85mm × 2mm
 
-**Series Configuration:**
-- **Total voltage:** 12V nominal (14.4V open circuit)
-- **Total current:** 250mA @ full sun
+**Parallel Configuration:**
+- **Total voltage:** 6V nominal (7.2V open circuit)
+- **Total current:** 500mA @ full sun
 - **Total power:** 3W combined
 
 ### Iowa Solar Conditions
@@ -59,18 +59,18 @@ Safety margin (20%): 1.32Ah × 1.2 = 1.58Ah per day
 
 **Monthly Performance (Iowa):**
 ```
-Jan: 3.5 hours × 250mA = 875mAh
-Feb: 4.0 hours × 250mA = 1000mAh  
-Mar: 5.0 hours × 250mA = 1250mAh
-Apr: 6.0 hours × 250mA = 1500mAh
-May: 7.0 hours × 250mA = 1750mAh
-Jun: 7.5 hours × 250mA = 1875mAh
-Jul: 7.5 hours × 250mA = 1875mAh
-Aug: 7.0 hours × 250mA = 1750mAh
-Sep: 6.0 hours × 250mA = 1500mAh
-Oct: 5.0 hours × 250mA = 1250mAh
-Nov: 3.5 hours × 250mA = 875mAh
-Dec: 3.0 hours × 250mA = 750mAh
+Jan: 3.5 hours × 500mA = 1750mAh
+Feb: 4.0 hours × 500mA = 2000mAh  
+Mar: 5.0 hours × 500mA = 2500mAh
+Apr: 6.0 hours × 500mA = 3000mAh
+May: 7.0 hours × 500mA = 3500mAh
+Jun: 7.5 hours × 500mA = 3750mAh
+Jul: 7.5 hours × 500mA = 3750mAh
+Aug: 7.0 hours × 500mA = 3500mAh
+Sep: 6.0 hours × 500mA = 3000mAh
+Oct: 5.0 hours × 500mA = 2500mAh
+Nov: 3.5 hours × 500mA = 1750mAh
+Dec: 3.0 hours × 500mA = 1500mAh
 ```
 
 ## Battery System Design
@@ -109,8 +109,8 @@ Dec: 3.0 hours × 250mA = 750mAh
 
 **Daily Charging Cycles:**
 ```
-Best case (summer): 1875mAh generated - 1320mAh consumed = +555mAh net
-Worst case (winter): 750mAh generated - 1320mAh consumed = -570mAh net
+Best case (summer): 3750mAh generated - 1320mAh consumed = +2430mAh net
+Worst case (winter): 1500mAh generated - 1320mAh consumed = +180mAh net
 ```
 
 ### Autonomy Calculation
@@ -122,9 +122,9 @@ Worst case (winter): 750mAh generated - 1320mAh consumed = -570mAh net
 - **Backup time:** 4800mAh ÷ 1320mAh = 3.6 days
 
 **Iowa Weather Patterns:**
-- **Cloudy periods:** Rarely exceed 3-4 consecutive days
-- **Winter storms:** System survives typical weather patterns
-- **Safety margin:** 20% additional capacity factored in
+- **Cloudy periods:** System maintains positive energy balance except extreme winter
+- **Winter performance:** Still generates surplus energy on most days
+- **Safety margin:** Massive energy surplus in spring/summer/fall
 
 ## System Integration
 
@@ -132,7 +132,7 @@ Worst case (winter): 750mAh generated - 1320mAh consumed = -570mAh net
 
 **Solar → BMS → Battery → Load Path:**
 ```
-Solar Panels (12V, 250mA)
+Solar Panels (6V, 500mA) - Parallel Connection
     ↓
 Blocking Diode (Schottky, 1A)
     ↓  
@@ -148,14 +148,14 @@ ESP32/SX1262 Load (3.3V via regulator)
 ### Voltage Regulation
 
 **3.3V Supply Options:**
-1. **Linear regulator** (LM1117-3.3) - simple, some efficiency loss
-2. **Switching regulator** (AMS1117-3.3) - higher efficiency
-3. **ESP32 internal regulator** - if input voltage compatible
+1. **Linear regulator** (LM1117-3.3) - simple, good efficiency at 6V input
+2. **Switching regulator** (AMS1117-3.3) - highest efficiency
+3. **ESP32 internal regulator** - many boards accept 6V input directly
 
 **Efficiency Considerations:**
-- **Linear regulator:** ~75% efficiency (3.3V/4.2V)
-- **Switching regulator:** ~85-90% efficiency
-- **Power savings:** Switching recommended for battery life
+- **Linear regulator:** ~55% efficiency (3.3V/6V) - acceptable for surplus power
+- **Switching regulator:** ~85-90% efficiency - recommended
+- **Direct to ESP32:** ~90%+ if board supports 6V input
 
 ## Environmental Factors
 

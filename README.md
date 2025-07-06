@@ -70,7 +70,7 @@ This design creates a **25-foot elevated, solar-powered Meshtastic station** tha
 
 ## 🔧 Quick Start
 
-1. **Print the radial hub** from `3d-models/radial-hub.scad`
+1. **Print the radial and vertical hub** from `3d-models`
 2. **Cut fiberglass rods** to 3.2" lengths (5 pieces)
 3. **Prepare copper wires** - 4 parallel wires per rod
 4. **Assemble electronics** in PVC box with solar panels
